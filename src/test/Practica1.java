@@ -13,6 +13,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JComboBox;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
@@ -23,14 +24,14 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
-  class Pedido {
+class Pedido {
 	 public String NombreMedicamento;
 	 public int Tipomedicamento;
 	 public long  CantidadMedicamento;
 	 public int Distribuidor;
 	 public boolean FarmaciaPrincipal;
 	 public boolean FarmaciaSecundaria;
-	 public Vector<String> Medicamentos;
+	 public Vector<String> Medicamentos= new Vector<String>();
 	 
 	 public void AddMedicamentos(String Value) {
 		 Medicamentos.add(Value);
@@ -42,6 +43,21 @@ import java.awt.event.ActionEvent;
 	 
 	
 }
+  
+class Resumen extends JFrame{
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	public void start(){
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 415);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	}
+
+	
+}
+  
 public class Practica1 extends JFrame {
 
 	private JPanel contentPane;
@@ -65,16 +81,13 @@ public class Practica1 extends JFrame {
 	}
 	
 	
-	
-	private void ResumenPedido() {
-		
-		
-	}
 
 	/**
 	 * Create the frame.
 	 */
 	public Practica1() {
+		Resumen res = new Resumen();
+		res.start();
 		Pedido pedido= new Pedido();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 415);
@@ -149,7 +162,9 @@ public class Practica1 extends JFrame {
 		gbc_lblNewLabel_3.gridx = 0;
 		gbc_lblNewLabel_3.gridy = 6;
 		contentPane.add(lblNewLabel_3, gbc_lblNewLabel_3);
+		ButtonGroup Grupo = new ButtonGroup();
 		
+				
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Cofarma");
 		rdbtnNewRadioButton.setToolTipText("ewqe\r\nqwe\r\nqweqwe");
 		GridBagConstraints gbc_rdbtnNewRadioButton = new GridBagConstraints();
@@ -157,6 +172,7 @@ public class Practica1 extends JFrame {
 		gbc_rdbtnNewRadioButton.gridx = 0;
 		gbc_rdbtnNewRadioButton.gridy = 7;
 		contentPane.add(rdbtnNewRadioButton, gbc_rdbtnNewRadioButton);
+		Grupo.add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Empsephar");
 		GridBagConstraints gbc_rdbtnNewRadioButton_1 = new GridBagConstraints();
@@ -164,6 +180,7 @@ public class Practica1 extends JFrame {
 		gbc_rdbtnNewRadioButton_1.gridx = 0;
 		gbc_rdbtnNewRadioButton_1.gridy = 8;
 		contentPane.add(rdbtnNewRadioButton_1, gbc_rdbtnNewRadioButton_1);
+		Grupo.add(rdbtnNewRadioButton_1);
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Cemefar");
 		GridBagConstraints gbc_rdbtnNewRadioButton_2 = new GridBagConstraints();
@@ -171,6 +188,7 @@ public class Practica1 extends JFrame {
 		gbc_rdbtnNewRadioButton_2.gridx = 0;
 		gbc_rdbtnNewRadioButton_2.gridy = 9;
 		contentPane.add(rdbtnNewRadioButton_2, gbc_rdbtnNewRadioButton_2);
+		Grupo.add(rdbtnNewRadioButton_2);
 		
 		JLabel lblNewLabel_4 = new JLabel("Sucursal");
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();

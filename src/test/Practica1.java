@@ -20,8 +20,28 @@ import javax.swing.JCheckBox;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
 
+  class Pedido {
+	 public String NombreMedicamento;
+	 public int Tipomedicamento;
+	 public long  CantidadMedicamento;
+	 public int Distribuidor;
+	 public boolean FarmaciaPrincipal;
+	 public boolean FarmaciaSecundaria;
+	 public Vector<String> Medicamentos;
+	 
+	 public void AddMedicamentos(String Value) {
+		 Medicamentos.add(Value);
+	 }
+	 public String GetMedicamento(int value) {
+		return Medicamentos.get(value-1);
+	 }
+	 
+	 
+	
+}
 public class Practica1 extends JFrame {
 
 	private JPanel contentPane;
@@ -43,11 +63,19 @@ public class Practica1 extends JFrame {
 			}
 		});
 	}
+	
+	
+	
+	private void ResumenPedido() {
+		
+		
+	}
 
 	/**
 	 * Create the frame.
 	 */
 	public Practica1() {
+		Pedido pedido= new Pedido();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 415);
 		contentPane = new JPanel();
@@ -88,6 +116,11 @@ public class Practica1 extends JFrame {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Analg\u00E9sico", "Anal\u00E9ptico", "Antidepresivo", "Antibi\u00F3ticos"}));
+		pedido.AddMedicamentos("Analg\u00E9sico");
+		pedido.AddMedicamentos("Anal\u00E9ptico");
+		pedido.AddMedicamentos("Antidepresivo");
+		pedido.AddMedicamentos("Antibi\u00F3ticos");
+		
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -176,6 +209,10 @@ public class Practica1 extends JFrame {
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Confirmar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panel.add(btnNewButton_1);
 	}
 
